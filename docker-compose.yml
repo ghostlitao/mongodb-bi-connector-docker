@@ -10,3 +10,5 @@ services:
       MONGODB_HOST: 172.17.0.1
       MONGODB_PORT: 27017
       LISTEN_PORT: 3308
+    restart: 
+      - always
