@@ -8,22 +8,4 @@ This bi-connector assume that your mongodb server can connect without any authen
 
 ## docker-compose example
 
-```
-version: "3"
-services:
- 
-  mongodb-bi-connector:
-    image: ghostlitao/mongodb-bi-connector:latest
-    container_name: mongodb-bi-connector
-    ports:
-      - 3308:3307
-    environment:
-      MONGODB_HOST: 172.17.0.1
-      MONGODB_PORT: 27017
-      MONGODB_USER: root
-      MONGODB_PASS: admin
-      LISTEN_PORT: 3307
-
-```
-
-
+see docker-compose.yml
