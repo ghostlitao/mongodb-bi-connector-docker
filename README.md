@@ -14,11 +14,14 @@ services:
  
   mongodb-bi-connector:
     image: ghostlitao/mongodb-bi-connector:latest
+    ports:
+      - 3308:3308
     environment:
-      MONGODB_HOST: mongodb
+      MONGODB_HOST: 172.17.0.1
       MONGODB_PORT: 27017
       MONGODB_USER: root
       MONGODB_PASS: admin
+      LISTEN_PORT: 3308
 
 ```
 

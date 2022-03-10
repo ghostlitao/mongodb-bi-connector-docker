@@ -12,6 +12,8 @@ ENV LISTEN_PORT 3307
 ENV MONGODB_USER root
 ENV MONGODB_PASS admin
 
+EXPOSE $LISTEN_PORT
+
 # Download BI Connector to /mongosqld
 WORKDIR /tmp
 RUN curl https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linux-x86_64-debian92-$VERSION.tgz -o bi-connector.tgz && \
