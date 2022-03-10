@@ -1,6 +1,6 @@
 version: "3"
 services:
-
+ 
   mongodb-bi-connector:
     image: ghostlitao/mongodb-bi-connector:latest
     container_name: mongodb-bi-connector
@@ -9,6 +9,9 @@ services:
     environment:
       MONGODB_HOST: 172.17.0.1
       MONGODB_PORT: 27017
+      MONGODB_USER: root
+      MONGODB_PASS: admin
       LISTEN_PORT: 3308
-    restart: 
-      - always
+    volumes:
+      - ./mongo.pem:/tmp/mongo.pem
+    restart: always

@@ -5,12 +5,12 @@ RUN apt update
 RUN apt install -y rsyslog nano curl
 
 # Setup default environment variables
-ENV VERSION v2.14.4
+ENV VERSION v2.14.3
 ENV MONGODB_HOST mongodb
 ENV MONGODB_PORT 27017
 ENV LISTEN_PORT 3307
-# ENV MONGODB_USER root
-# ENV MONGODB_PASS admin
+ENV MONGODB_USER root
+ENV MONGODB_PASS admin
 
 EXPOSE $LISTEN_PORT
 
@@ -27,5 +27,6 @@ RUN curl https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linu
 RUN service rsyslog start
 # --logPath /var/log/mongosqld.log
 
-# CMD sh -c "/mongosqld/bin/mongosqld --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --authenticationDatabase admin --addr 0.0.0.0:$LISTEN_PORT"
-CMD sh -c "/mongosqld/bin/mongosqld --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --addr 0.0.0.0:$LISTEN_PORT"
+
+
+CMD sh -c "/mongosqld/bin/mongosqld --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --mongo-authenticationSource admin --addr 0.0.0.0:$LISTEN_PORT --sslMode requireSSL --sslPEMKeyFile /tmp/mongo.pem"
