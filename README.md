@@ -11,11 +11,9 @@ This bi-connector assume that your mongodb server can connect without any authen
 ```
 version: "3"
 services:
-  mongodb:
-    image: mongo:bionic
-  
+ 
   mongodb-bi-connector:
-    image: ryanhs/mongodb-bi-connector:latest
+    image: ghostlitao/mongodb-bi-connector:latest
     environment:
       MONGODB_HOST: mongodb
       MONGODB_PORT: 27017
