@@ -25,4 +25,4 @@ RUN curl https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linu
 # Start Everything
 # note: we need to use sh -c "command" to make rsyslog running as deamon too
 RUN service rsyslog start
-CMD sh -c "/mongosqld/bin/mongosqld --logPath /var/log/mongosqld.log --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --addr 0.0.0.0:$LISTEN_PORT"
+CMD sh -c "/mongosqld/bin/mongosqld --logPath /var/log/mongosqld.log --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --authenticationDatabase admin --addr 0.0.0.0:$LISTEN_PORT"
