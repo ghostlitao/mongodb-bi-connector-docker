@@ -29,4 +29,4 @@ RUN service rsyslog start
 
 
 
-CMD sh -c "/mongosqld/bin/mongosqld --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --mongo-authenticationSource admin --addr 0.0.0.0:$LISTEN_PORT --sslMode requireSSL --sslPEMKeyFile /tmp/mongo.pem"
+CMD sh -c "/mongosqld/bin/mongosqld --mongo-uri mongodb://$MONGODB_HOST:$MONGODB_PORT/?connect=direct --auth -u $MONGODB_USER -p $MONGODB_PASS --mongo-authenticationSource admin --addr 0.0.0.0:$LISTEN_PORT --sslMode requireSSL --sslPEMKeyFile /tmp/mongo.pem --sampleNamespaces 'mdworksheet.*' --sampleNamespaces 'mdwsrows.*' --sampleSize 10000"
