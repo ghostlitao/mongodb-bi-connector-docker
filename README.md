@@ -30,3 +30,10 @@ Start mongosqld with enabled SSL:
 ``` 
 $ ./mongosqld --auth --sslMode requireSSL --sslPEMKeyFile mongo.pem
 ``` 
+
+
+MySQL [(none)]> SET GLOBAL max_num_global_tables=10000;
+Query OK, 0 rows affected (0.001 sec)
+
+MySQL [(none)]> flush sample;
+Query OK, 0 rows affected (14.561 sec)
